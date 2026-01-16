@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    consumer:
+      group-id: email-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaDeserializer
+    properties:
+      schema.registry.url: http://localhost:9095
+      json.value.type: com.example.email_service.dto.InventoryEvent
